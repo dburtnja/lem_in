@@ -13,7 +13,7 @@
 NAME = libft.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 SRC =	ft_memset.c\
 		ft_memcpy.c\
 		ft_memccpy.c\
@@ -35,6 +35,7 @@ SRC =	ft_memset.c\
 		ft_strcmp.c\
 		ft_strncmp.c\
 		ft_atoi.c\
+		ft_atoi_move.c\
 		ft_isalpha.c\
 		ft_isdigit.c\
 		ft_isalnum.c\
