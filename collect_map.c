@@ -8,11 +8,16 @@ void	add_connections(t_rooms *first, t_rooms *second)
 {
 	t_rooms	**new_p;
 	int		i;
+	size_t	rom_size;
 
+	rom_size = sizeof(t_rooms*);
 	i = 0;
-	new_p = (t_rooms**)ft_memalloc(sizeof(t_rooms*) * (first->conn) + 1);
-	ft_memcpy(*new_p, *(first->r), (size_t)first->conn);
-	ft_memdel(first->r);
+	new_p = (t_rooms**)ft_memalloc(rom_size * ((first->conn) + 1));
+	ft_memcpy(*new_p, *(first->r), (size_t)first->conn * rom_size);
+	first->conn += 1;
+	free(first->r);
+	(first->r)[first->conn] = second;
+
 }
 
 t_rooms	*find_the_room(char *buf, t_info *info)
