@@ -19,8 +19,6 @@ int		main(void)
 
 	ft_bzero(&info, sizeof(info));
 	info.ants = -1;
-	if (!(info.start = new_room()))
-		error(-1);
 	read_define(&info);
 	return (0);
 }

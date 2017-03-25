@@ -8,6 +8,8 @@
 # include "libft/libft.h"
 # include "libft/ft_printf/ft_printf.h"
 
+# define INT_MAX 2147483647
+
 typedef struct		s_rooms
 {
 	char			*name;

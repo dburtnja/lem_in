@@ -15,7 +15,7 @@ t_rooms	*find_the_room(char *buf, t_info *info)
 	t_rooms	*p;
 
 	p = info->start;
-	if (ft_strncmp(p->name, buf, ft_strlen(p->name)) == 0)
+	if (p && ft_strncmp(p->name, buf, ft_strlen(p->name)) == 0)
 		return (info->start);
 	p = info->rooms;
 	while (p)

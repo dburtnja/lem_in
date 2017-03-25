@@ -7,18 +7,22 @@
 void	read_commands(t_info *info, char *buf)
 {
 	int		gnl;
+	t_rooms	*p;
 
 	gnl = -1;
 	if (ft_strcmp("start", buf) == 0)
 	{
 		if ((gnl = get_next_line(0, &buf)) > 0)
-			read_rooms(buf, &(info->start->name), &(info->start->x),
-					   &(info->start->y));
+			info->start = room_to_lst(buf);
 	}
 	else if (ft_strcmp("end", buf) == 0)
 	{
 		if ((gnl = get_next_line(0, &buf)) > 0)
-			rooms_add_back(&(info->rooms), room_to_lst(buf));
+		{
+			p = room_to_lst(buf);
+			p->nbr = INT_MAX;
+			rooms_add_back(&(info->rooms), p);
+		}
 	}
 	if (gnl != 1)
 		error(-2);
@@ -47,7 +51,7 @@ void	select_define(char *buf, t_info *info)
 	else if (*buf != '#' && w_nbr == 3)
 		room_add(&(info->rooms), room_to_lst(buf));
 	else if (if_all_num(buf))
-		info->start->ant = ft_atoi_move(&buf, &err, 0);
+		info->ants = ft_atoi_move(&buf, &err, 0);
 	else if (*buf != '#' && w_nbr == 1)
 		collect_map(buf, info);
 	else if (*buf != '#')
@@ -60,6 +64,7 @@ void	read_define(t_info *info)
 {
 	int		gnl;
 	char	*buf;
+	t_rooms	*p;
 
 	while ((gnl = get_next_line(0, &buf)) > 0)
 	{
@@ -69,6 +74,11 @@ void	read_define(t_info *info)
 		ft_printf("%s\n", buf);
 		ft_strdel(&buf);
 	}
-	if (gnl == -1)
+	if (gnl == -1 && !(info->start) && info->ants < 0)
+		error(-2);
+	p = info->rooms;
+	while (p && p->next)
+		p = p->next;
+	if (!p || p->nbr != INT_MAX)
 		error(-2);
 }

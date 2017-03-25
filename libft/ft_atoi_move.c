@@ -26,10 +26,18 @@ int			cheak_nbr(char *temp, int nbr, int size)
 {
 	char	*buf;
 	int		res;
+	int		i;
 
+	i = 0;
 	res = 1;
 	buf = ft_itoa(nbr);
-	if (ft_strncmp(temp, buf, size) == 0 && size > 0)
+	while ((*temp == ' ' || *temp == '\t' || *temp == '\v' || *temp == '\r' ||
+		   *temp == '\f' || *temp == '\n') && *temp != 0)
+	{
+		temp++;
+		i++;
+	}
+	if (ft_strncmp(temp, buf, (size_t)(size - i)) == 0 && size > 0)
 		res = 0;
 	ft_strdel(&buf);
 	return (res);
@@ -57,7 +65,7 @@ int			ft_atoi_move(char **buf, int *error, int move)
 	else if (**buf == '+')
 		buf++;
 	s = ft_h(buf, s);
-	*error = cheak_nbr(temp, s, *buf - temp);
+	*error = cheak_nbr(temp, s, (int)(*buf - temp));
 	*buf = move ? *buf : temp;
 	return (s);
 }
