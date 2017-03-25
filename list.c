@@ -25,8 +25,6 @@ void	room_add(t_rooms **alst, t_rooms *new)
 	*alst = new;
 }
 
-
-
 t_rooms	*new_room(void)
 {
 	t_rooms *buf;
@@ -36,7 +34,7 @@ t_rooms	*new_room(void)
 		error(-1);
 	else
 	{
-		buf->r = (t_rooms**)ft_memalloc(sizeof(t_rooms*) * 2);
+		buf->r = (t_rooms**)ft_memalloc(sizeof(t_rooms*) * 1);
 		if (!(buf->r))
 			error(-1);
 	}
