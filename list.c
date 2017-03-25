@@ -32,11 +32,5 @@ t_rooms	*new_room(void)
 	buf = (t_rooms*)ft_memalloc(sizeof(t_rooms));
 	if (buf == NULL)
 		error(-1);
-	else
-	{
-		buf->r = (t_rooms**)ft_memalloc(sizeof(t_rooms*) * 1);
-		if (!(buf->r))
-			error(-1);
-	}
 	return (buf);
 }

@@ -17,7 +17,7 @@ typedef struct		s_rooms
 	int				nbr;
 	struct s_rooms	*next;
 	int				conn;
-	struct s_rooms	**r;
+	t_list			*n_room;
 }					t_rooms;
 
 typedef struct		s_info

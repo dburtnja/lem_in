@@ -6,18 +6,8 @@
 
 void	add_connections(t_rooms *first, t_rooms *second)
 {
-	t_rooms	**new_p;
-	int		i;
-	size_t	rom_size;
-
-	rom_size = sizeof(t_rooms*);
-	i = 0;
-	new_p = (t_rooms**)ft_memalloc(rom_size * ((first->conn) + 1));
-	ft_memcpy(*new_p, *(first->r), (size_t)first->conn * rom_size);
-	first->conn += 1;
-	free(first->r);
-	(first->r)[first->conn] = second;
-
+	ft_lstadd(&(first->n_room), ft_lstnew(second, sizeof(second)));
+	ft_lstadd(&(second->n_room), ft_lstnew(first, sizeof(first)));
 }
 
 t_rooms	*find_the_room(char *buf, t_info *info)
