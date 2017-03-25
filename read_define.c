@@ -35,11 +35,6 @@ int		if_all_num(char *str)
 	return (1);
 }
 
-void	read_else(char *buf, t_info *info)
-{
-
-}
-
 void	select_define(char *buf, t_info *info)
 {
 	int		w_nbr;
@@ -54,7 +49,7 @@ void	select_define(char *buf, t_info *info)
 	else if (if_all_num(buf))
 		info->start->ant = ft_atoi_move(&buf, &err, 0);
 	else if (*buf != '#' && w_nbr == 1)
-		read_else(buf, info);
+		collect_map(buf, info);
 	else if (*buf != '#')
 		error(-2);
 	if (err && info->start->ant < 0)

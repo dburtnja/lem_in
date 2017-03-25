@@ -30,6 +30,7 @@ void				error(int nbr);
 void				read_define(t_info *info);
 void				read_rooms(char *buf, char **name, int *x, int *y);
 t_rooms				*room_to_lst(char *buf);
+void				collect_map(char *buf, t_info *info);
 
 
 void				rooms_add_back(t_rooms **alst, t_rooms *new);
