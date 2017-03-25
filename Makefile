@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 LIB = libft/libft.a
+FT_PRINTF = libft/ft_printf/libftprintf.a
 
 NAME = ./resources/players/filler #change to ./
 BONUS = ./resources/bonus
@@ -18,43 +19,34 @@ BONUS = ./resources/bonus
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRC =	main.c\
-        read_map.c\
-        find_coordinates.c\
-        find_hostile.c\
-        read_tokens.c\
-        find_place.c\
-        help_find_place.c
-
-B_SRC = bonus/check_flag.c\
-        bonus/out_filler.c\
-        bonus/read_input.c
+        read_define.c\
+        read_rooms.c\
+        list.c\
+        word_nbr.c\
+        collect_map.c
 
 OBJ = $(SRC:.c=.o)
-B_OBJ = $(B_SRC:.c=.o)
 
-all:	$(LIB) $(NAME) $(BONUS)
+all:	$(FT_PRINTF) $(LIB) $(NAME)
 
 $(LIB):
 		make -C ./libft
 
+$(FT_PRINTF):
+		make -C ./libft/ft_printf
+
 $(NAME): $(OBJ)
-		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB)
+		@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB) $(FT_PRINTF)
 %.o: %.c
 		@$(CC) -c $(CFLAGS) -o $@ $<
-
-$(BONUS): $(B_OBJ)
-		@$(CC) $(CFLAGS) $(B_OBJ) -o $(BONUS) $(LIB)
-%.o: %.c
-		@$(CC) -c $(CFLAGS) -o $@ $<
-
 
 clean:
 		@make clean -C ./libft
+		@make clean -C ./libft/ft_printf
 		@rm -f $(OBJ)
-		@rm -f $(B_OBJ)
-
 fclean:
 		@make fclean -C ./libft
+		@make fclean -C ./libft/ft_printf
 		@make clean
 		@rm -f $(NAME)
 		@rm -f $(BONUS)

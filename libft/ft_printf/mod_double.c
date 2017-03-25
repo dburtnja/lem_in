@@ -41,7 +41,7 @@ char	*write_e(long double nbr, t_arg *head, int c)
 char	*mod_e(long double nbr, t_arg *head, int *count)
 {
 	unsigned long long	buf;
-	long double			r_nbr;
+	//long double			r_nbr;
 
 	*count = 0;
 	buf = (unsigned long long)(nbr < 0 ? nbr * -1 : nbr);
@@ -57,7 +57,7 @@ char	*mod_e(long double nbr, t_arg *head, int *count)
 		nbr /= 10;
 		buf = (unsigned long long)(nbr < 0 ? nbr * -1 : nbr);
 	}
-	r_nbr = head->precision == 0 ? ft_r_nbr(nbr) : nbr;
+	//r_nbr = head->precision == 0 ? ft_r_nbr(nbr) : nbr;
 	return (write_e(nbr, head, *count));
 }
 
