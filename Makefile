@@ -13,8 +13,7 @@
 LIB = libft/libft.a
 FT_PRINTF = libft/ft_printf/libftprintf.a
 
-NAME = ./resources/players/filler #change to ./
-BONUS = ./resources/bonus
+NAME = lem_in
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

@@ -7,20 +7,20 @@
 void	read_rooms(char *buf, char **name, int *x, int *y)
 {
 	int		i;
-	int		error;
+	int		err;
 
-	if (*buf = 0)
+	if (*buf == 0)
 		error(-2);
-	if (!(*name = ft_strsub(buf, 0, (i = ft_lentoc(buf, ' ')))))
+	if (!(*name = ft_strsub(buf, 0, (size_t)(i = ft_lentoc(buf, ' ')))))
 		error(-1);
 	if (**name == 0)
 		error(-2);
 	buf = buf + i;
-	*x = ft_atoi_move(&buf, &error, 1);
-	if (error)
+	*x = ft_atoi_move(&buf, &err, 1);
+	if (err)
 		error(-2);
-	*y = ft_atoi_move(&buf, &error, 1);
-	if (error)
+	*y = ft_atoi_move(&buf, &err, 1);
+	if (err)
 		error(-2);
 }
 

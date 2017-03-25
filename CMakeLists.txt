@@ -10,7 +10,6 @@ set(SOURCE_FILES
     libft/ft_printf/ft_itoa_base.c
     libft/ft_printf/ft_itoa_d.c
     libft/ft_printf/ft_itoa_p.c
-    libft/ft_printf/ft_lentoc.c
     libft/ft_printf/ft_list.c
     libft/ft_printf/ft_modlst.c
     libft/ft_printf/ft_nbrlen_base.c
