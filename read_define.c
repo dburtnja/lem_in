@@ -69,7 +69,7 @@ void	read_define(t_info *info)
 	while ((gnl = get_next_line(0, &buf)) > 0)
 	{
 		if (*buf == 0)
-			error(-2);
+			break;//error(-2);
 		select_define(buf, info);
 		ft_printf("%s\n", buf);
 		ft_strdel(&buf);

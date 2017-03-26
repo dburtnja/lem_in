@@ -3,6 +3,8 @@ project(lem_in)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_C_FLAGS "-std=c99 -Wall -Wextra -Werror")
+
 set(SOURCE_FILES
     libft/ft_printf/check_nbr.c
     libft/ft_printf/check_type.c
