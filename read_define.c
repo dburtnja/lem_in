@@ -6,25 +6,18 @@
 
 void	read_commands(t_info *info, char *buf)
 {
-	int		gnl;
 	t_rooms	*p;
 
-	gnl = -1;
-	if (ft_strcmp("start", buf) == 0)
+	info->p = info->p->next;
+	if (info->p && ft_strcmp("start", buf) == 0)
+			info->start = room_to_lst(info->p->str);
+	else if (info->p && ft_strcmp("end", buf) == 0)
 	{
-		if ((gnl = get_next_line(0, &buf)) > 0)
-			info->start = room_to_lst(buf);
+		p = room_to_lst(info->p->str);
+		p->nbr = INT_MAX;
+		rooms_add_back(&(info->rooms), p);
 	}
-	else if (ft_strcmp("end", buf) == 0)
-	{
-		if ((gnl = get_next_line(0, &buf)) > 0)
-		{
-			p = room_to_lst(buf);
-			p->nbr = INT_MAX;
-			rooms_add_back(&(info->rooms), p);
-		}
-	}
-	if (gnl != 1)
+	else
 		error(-2);
 }
 
@@ -60,21 +53,18 @@ void	select_define(char *buf, t_info *info)
 		error(-2);
 }
 
-void	read_define(t_info *info)
+void	process_info_list(t_info *info)
 {
-	int		gnl;
-	char	*buf;
 	t_rooms	*p;
+	char	*buf;
 
-	while ((gnl = get_next_line(0, &buf)) > 0)
+	while (info->p)
 	{
-		if (*buf == 0)
-			break;//error(-2);
+		buf = info->p->str;
 		select_define(buf, info);
-		ft_printf("%s\n", buf);
-		ft_strdel(&buf);
+		info->p = info->p->next;
 	}
-	if (gnl == -1 && !(info->start) && info->ants < 0)
+	if (!(info->start) && info->ants < 0)
 		error(-2);
 	p = info->rooms;
 	while (p && p->next)

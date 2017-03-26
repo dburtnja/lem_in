@@ -13,12 +13,30 @@ void	error(int nbr)
 	exit(nbr);
 }
 
+void	read_into_list(t_info *info)
+{
+	int		gnl;
+	char	*buf;
+
+	while ((gnl = get_next_line(0, &buf)) > 0)
+	{
+		if (*buf == 0)
+			break ;//error(-2);
+		str_lst_add_back(&(info->head), new_str_lst(buf));
+	}
+	if (gnl == -1)
+		error(-2);
+}
+
 int		main(void)
 {
 	t_info	info;
 
 	ft_bzero(&info, sizeof(info));
 	info.ants = -1;
-	read_define(&info);
+	read_into_list(&info);
+	info.p = info.head;
+	process_info_list(&info);
+	print_and_dell_str_lst(info.head);
 	return (0);
 }

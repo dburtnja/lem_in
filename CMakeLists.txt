@@ -102,6 +102,6 @@ set(SOURCE_FILES
     libft/get_next_line.c
     libft/get_next_line.h
     libft/libft.h
-    main.c read_define.c lem_in.h libft/ft_atoi_move.c read_rooms.c list.c word_nbr.c collect_map.c collect_map.c)
+    main.c read_define.c lem_in.h libft/ft_atoi_move.c read_rooms.c list.c word_nbr.c collect_map.c collect_map.c str_lst.c)
 
 add_executable(lem_in ${SOURCE_FILES})
