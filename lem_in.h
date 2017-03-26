@@ -24,12 +24,12 @@ typedef struct		s_rooms
 	int				ant;
 	int				nbr;
 	struct s_rooms	*next;
-	int				conn;
 	t_list			*n_room;
 }					t_rooms;
 
 typedef struct		s_info
 {
+	int				nbr_rooms;
 	int				ants;
 	t_str			*p;
 	t_str			*head;
@@ -42,7 +42,7 @@ void				process_info_list(t_info *info);
 void				read_rooms(char *buf, char **name, int *x, int *y);
 t_rooms				*room_to_lst(char *buf);
 void				collect_map(char *buf, t_info *info);
-
+void				find_path(t_info *info);
 
 void				rooms_add_back(t_rooms **alst, t_rooms *new);
 t_rooms				*new_room(void);

@@ -57,7 +57,9 @@ void	process_info_list(t_info *info)
 {
 	t_rooms	*p;
 	char	*buf;
+	int		i;
 
+	i = 1;
 	while (info->p)
 	{
 		buf = info->p->str;
@@ -68,7 +70,12 @@ void	process_info_list(t_info *info)
 		error(-2);
 	p = info->rooms;
 	while (p && p->next)
+	{
+		p->nbr = i;
+		i++;
 		p = p->next;
+	}
+	info->nbr_rooms = i + 1;
 	if (!p || p->nbr != INT_MAX)
 		error(-2);
 }

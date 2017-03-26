@@ -37,6 +37,8 @@ int		main(void)
 	read_into_list(&info);
 	info.p = info.head;
 	process_info_list(&info);
+	info.ants = info.start->ant;
+	find_path(&info);
 	print_and_dell_str_lst(info.head);
 	return (0);
 }
