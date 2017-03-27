@@ -17,8 +17,6 @@ void	read_commands(t_info *info, char *buf)
 		p->nbr = INT_MAX;
 		rooms_add_back(&(info->rooms), p);
 	}
-	else
-		error(-2);
 }
 
 int		if_all_num(char *str)

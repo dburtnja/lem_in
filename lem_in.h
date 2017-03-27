@@ -44,6 +44,7 @@ void				read_rooms(char *buf, char **name, int *x, int *y);
 t_rooms				*room_to_lst(char *buf);
 void				collect_map(char *buf, t_info *info);
 void				find_path(t_info *info);
+t_list				*remove_duplicate(t_list *paths);
 
 void				rooms_add_back(t_rooms **alst, t_rooms *new);
 t_rooms				*new_room(void);
@@ -54,5 +55,7 @@ t_str				*new_str_lst(char *str);
 void				str_lst_add_back(t_str **head, t_str *new);
 void				print_and_dell_str_lst(t_str *head);
 void				str_lst_add(t_str **head, t_str *new);
+t_list				*remove_from_lst(t_list **head, t_list *rem);
+void				list_del(t_list *del);
 
 #endif

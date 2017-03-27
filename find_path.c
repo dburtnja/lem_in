@@ -36,7 +36,7 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 	return (0);
 }
 
-void	remove_duplicate(t_list *paths)
+void	print_list(t_list *paths)
 {
 	t_list	*p;
 	int		i;
@@ -67,5 +67,6 @@ void	find_path(t_info *info)
 	start_rec(step, path, info->start, info);
 	if (info->paths == NULL)
 		error(-10);
-	remove_duplicate(info->paths);
+	info->paths = remove_duplicate(info->paths);
+	print_list(info->paths);
 }

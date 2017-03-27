@@ -4,6 +4,29 @@
 
 #include "lem_in.h"
 
+void	list_del(t_list *del)
+{
+	ft_memdel(&((del)->content));
+	ft_memdel((void**)&del);
+}
+
+t_list	*remove_from_lst(t_list **head, t_list *rem)
+{
+	t_list	*p;
+
+	p = *head;
+	if (*head == rem)
+		*head = (*head)->next;
+	else if (p)
+	{
+		while (p->next && p->next != rem)
+			p = p->next;
+		if (p->next == rem)
+			p->next = rem->next;
+	}
+	return (rem);
+}
+
 void	rooms_add_back(t_rooms **alst, t_rooms *new)
 {
 	t_rooms	*p;
