@@ -29,6 +29,17 @@ void	str_lst_add_back(t_str **head, t_str *new)
 	}
 }
 
+void	str_lst_add(t_str **head, t_str *new)
+{
+	if (*head == NULL)
+		*head = new;
+	else
+	{
+		new = *head;
+		*head = new;
+	}
+}
+
 void	print_and_dell_str_lst(t_str *head)
 {
 	t_str	*p;

@@ -6,8 +6,8 @@
 
 void	add_connections(t_rooms *first, t_rooms *second)
 {
-	ft_lstadd(&(first->n_room), ft_lstnew(&second, sizeof(second)));
-	ft_lstadd(&(second->n_room), ft_lstnew(&first, sizeof(first)));
+	str_lst_add(&(first->n_room), new_str_lst((char*)second));
+	str_lst_add(&(second->n_room), new_str_lst((char*)first));
 }
 
 t_rooms	*find_the_room(char *buf, t_info *info)

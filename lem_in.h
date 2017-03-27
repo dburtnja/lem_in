@@ -24,7 +24,7 @@ typedef struct		s_rooms
 	int				ant;
 	int				nbr;
 	struct s_rooms	*next;
-	t_list			*n_room;
+	t_str			*n_room;
 }					t_rooms;
 
 typedef struct		s_info
@@ -53,5 +53,6 @@ int					word_nbr(char *buf);
 t_str				*new_str_lst(char *str);
 void				str_lst_add_back(t_str **head, t_str *new);
 void				print_and_dell_str_lst(t_str *head);
+void				str_lst_add(t_str **head, t_str *new);
 
 #endif

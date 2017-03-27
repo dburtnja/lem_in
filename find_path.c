@@ -17,7 +17,7 @@ int		already_been_hear(int *path, int step, int nbr)
 
 int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 {
-	t_list	*p;
+	t_str	*p;
 
 	p = from->n_room;
 	if (already_been_hear(path, step, from->nbr) == 1)
@@ -30,7 +30,7 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 	}
 	while (p)
 	{
-		start_rec(step + 1, path, (t_rooms*)(p->content), info);
+		start_rec(step + 1, path, (t_rooms*)(p->str), info);
 		p = p->next;
 	}
 	return (0);
