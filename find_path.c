@@ -30,7 +30,7 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 	}
 	while (p)
 	{
-		start_rec(step + 1, path, (t_rooms*)p->content, info);
+		start_rec(step + 1, path, (t_rooms*)(p->content), info);
 		p = p->next;
 	}
 	return (0);
