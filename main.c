@@ -8,6 +8,8 @@ void	error(int nbr)
 {
 	if (nbr == -1)
 		ft_printf("ERROR\n");
+	else if (nbr == -10)
+		ft_printf("ERROR: can't find path\n");
 	else
 		ft_printf("ERROR reading\n");
 	exit(nbr);

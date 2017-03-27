@@ -31,6 +31,7 @@ typedef struct		s_info
 {
 	int				nbr_rooms;
 	int				ants;
+	t_list			*paths;
 	t_str			*p;
 	t_str			*head;
 	t_rooms			*start;
