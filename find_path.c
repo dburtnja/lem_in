@@ -19,7 +19,7 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 {
 	t_str	*p;
 
-	p = from->n_room;
+	p = from->n_room; //remove from path
 	if (already_been_hear(path, step, from->nbr) == 1)
 		return (0);
 	path[step] = from->nbr;
@@ -42,12 +42,12 @@ void	remove_duplicate(t_list *paths)
 	int		i;
 	int		*tab;
 
-	i = 0;
 	p = paths;
 	while (p)
 	{
+		i = 0;
 		tab = (int*)p->content;
-		while (i < (int)p->content_size)
+		while (i < ((int)p->content_size / (int)sizeof(int)))
 		{
 			ft_printf("%d, ", tab[i]);
 			i++;

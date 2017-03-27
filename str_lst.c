@@ -23,7 +23,7 @@ void	str_lst_add_back(t_str **head, t_str *new)
 		*head = new;
 	else
 	{
-		while (p && p->next)
+		while (p->next)
 			p = p->next;
 		p->next = new;
 	}
@@ -35,7 +35,7 @@ void	str_lst_add(t_str **head, t_str *new)
 		*head = new;
 	else
 	{
-		new = *head;
+		new->next = *head;
 		*head = new;
 	}
 }
