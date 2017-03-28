@@ -47,7 +47,7 @@ void	select_define(char *buf, t_info *info)
 		collect_map(buf, info);
 	else if (*buf != '#')
 		error(-2);
-	if (err && info->start->ant < 0)
+	if (err && info->ants < 0)
 		error(-2);
 }
 

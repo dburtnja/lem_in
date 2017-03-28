@@ -10,6 +10,8 @@ void	error(int nbr)
 		ft_printf("ERROR\n");
 	else if (nbr == -10)
 		ft_printf("ERROR: can't find path\n");
+	else if (nbr == -15)
+		ft_printf("ERROR: no ants\n");
 	else
 		ft_printf("ERROR reading\n");
 	exit(nbr);
@@ -39,8 +41,11 @@ int		main(void)
 	read_into_list(&info);
 	info.p = info.head;
 	process_info_list(&info);
-	info.ants = info.start->ant;
+	info.start->ant = info.ants;
 	find_path(&info);
+	if (info.start->ant < 1)
+		error(-15);
 	print_and_dell_str_lst(info.head);
+	move_ants(&info);
 	return (0);
 }

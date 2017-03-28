@@ -54,4 +54,5 @@ void	print_and_dell_str_lst(t_str *head)
 		ft_strdel(&(temp->str));
 		ft_memdel((void**)&temp);
 	}
+	ft_putendl("");
 }

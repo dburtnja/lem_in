@@ -35,7 +35,7 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 	}
 	return (0);
 }
-
+/*
 void	print_list(t_list *paths)
 {
 	t_list	*p;
@@ -56,7 +56,7 @@ void	print_list(t_list *paths)
 		p = p->next;
 	}
 }
-
+*/
 void	find_path(t_info *info)
 {
 	int		step;
@@ -68,5 +68,5 @@ void	find_path(t_info *info)
 	if (info->paths == NULL)
 		error(-10);
 	info->paths = remove_duplicate(info->paths);
-	print_list(info->paths);
+//	print_list(info->paths);
 }
