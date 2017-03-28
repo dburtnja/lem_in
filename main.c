@@ -47,5 +47,6 @@ int		main(void)
 		error(-15);
 	print_and_dell_str_lst(info.head);
 	move_ants(&info);
+	print_list(info.paths);
 	return (0);
 }
