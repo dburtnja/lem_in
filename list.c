@@ -24,6 +24,7 @@ t_list	*remove_from_lst(t_list **head, t_list *rem)
 		if (p->next == rem)
 			p->next = rem->next;
 	}
+	rem->next = NULL;
 	return (rem);
 }
 

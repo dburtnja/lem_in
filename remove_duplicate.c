@@ -32,7 +32,7 @@ int		find_nbr_in_lst(int nbr, t_list *head)
 		i = 0;
 		while (i < (int)head->content_size)
 		{
-			if (nbr == ((int*)(head->content))[i])
+			if (nbr != 0 && nbr != INT_MAX && nbr == ((int*)(head->content))[i])
 				return (1);
 			i++;
 		}
