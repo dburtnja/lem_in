@@ -36,7 +36,25 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 	return (0);
 }
 
-void	print_list(t_list *paths)
+
+char	*return_name(t_info *info, int nbr)
+{
+	t_rooms	*p;
+
+	p = info->start;
+	if (p->nbr == nbr)
+		return (p->name);
+	p = info->rooms;
+	while (p)
+	{
+		if (p->nbr == nbr)
+			return (p->name);
+		p = p->next;
+	}
+	return (NULL);
+}
+
+void	print_list(t_list *paths, t_info *info)
 {
 	t_list	*p;
 	int		i;
@@ -49,13 +67,16 @@ void	print_list(t_list *paths)
 		tab = (int*)p->content;
 		while (i < ((int)p->content_size / (int)sizeof(int)))
 		{
-			ft_printf("%-15d", tab[i]);
+			ft_printf("%-15s", return_name(info, tab[i]));
 			i++;
 		}
 		ft_putendl("");
 		p = p->next;
 	}
 }
+
+
+
 
 void	find_path(t_info *info)
 {

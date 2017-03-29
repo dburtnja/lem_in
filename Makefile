@@ -6,7 +6,7 @@
 #    By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/09 16:49:11 by dburtnja          #+#    #+#              #
-#    Updated: 2017/03/15 15:19:56 by dburtnja         ###   ########.fr        #
+#    Updated: 2017/03/29 16:33:28 by dburtnja         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,18 @@ FT_PRINTF = libft/ft_printf/libftprintf.a
 NAME = lem_in
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 SRC =	main.c\
         read_define.c\
         read_rooms.c\
         list.c\
         word_nbr.c\
-        collect_map.c
+        collect_map.c\
+        str_lst.c\
+        find_path.c\
+        remove_duplicate.c\
+        move_ants.c\
+        find_the_room_by_nbr.c
 
 OBJ = $(SRC:.c=.o)
 

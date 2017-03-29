@@ -62,7 +62,8 @@ void	process_info_list(t_info *info)
 	{
 		buf = info->p->str;
 		select_define(buf, info);
-		info->p = info->p->next;
+		if (info->p)
+			info->p = info->p->next;
 	}
 	if (!(info->start) && info->ants < 0)
 		error(-2);

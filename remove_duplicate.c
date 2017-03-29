@@ -4,7 +4,7 @@
 
 #include "lem_in.h"
 
-t_list	*find_shorter(t_list *p)
+t_list	*find_shorter(t_list *p, t_list *ret)
 {
 	t_list	*shorter;
 	int		comp;
@@ -13,7 +13,7 @@ t_list	*find_shorter(t_list *p)
 	shorter = NULL;
 	while (p)
 	{
-		if ((int)(p->content_size) < comp)
+		if ((int)(p->content_size) < comp && different_array(ret, p))
 		{
 			comp = (int)p->content_size;
 			shorter = p;
@@ -65,11 +65,14 @@ t_list	*remove_duplicate(t_list *paths)
 	ret = NULL;
 	while (paths)
 	{
-		shorter = find_shorter(paths);
+		shorter = find_shorter(paths, ret);
 		if (different_array(ret, shorter))
 			ft_lstadd_back(&ret, remove_from_lst(&paths, shorter));
 		else
 			list_del((remove_from_lst(&paths, shorter)));
+
+	//	ft_putendl("");
+		//print_list(paths, info);
 	}
 	return (ret);
 }
