@@ -47,6 +47,7 @@ void				find_path(t_info *info);
 t_list				*remove_duplicate(t_list *paths);
 void				move_ants(t_info *info);
 void				print_list(t_list *paths);
+void				find_the_room_by_nbr(int f_room, int t_room, t_info *info);
 
 void				rooms_add_back(t_rooms **alst, t_rooms *new);
 t_rooms				*new_room(void);
