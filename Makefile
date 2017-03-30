@@ -16,7 +16,7 @@ FT_PRINTF = libft/ft_printf/libftprintf.a
 NAME = lem_in
 
 CC = gcc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SRC =	main.c\
         read_define.c\
         read_rooms.c\
