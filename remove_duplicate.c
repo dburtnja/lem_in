@@ -67,7 +67,10 @@ t_list	*remove_duplicate(t_list *paths)
 	{
 		shorter = find_shorter(paths, ret);
 		if (!shorter)
+		{
+			free_list(&paths);
 			return (ret);
+		}
 		if (different_array(ret, shorter))
 			ft_lstadd_back(&ret, remove_from_lst(&paths, shorter));
 		else

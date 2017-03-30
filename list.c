@@ -4,12 +4,6 @@
 
 #include "lem_in.h"
 
-void	list_del(t_list *del)
-{
-	ft_memdel(&((del)->content));
-	ft_memdel((void**)&del);
-}
-
 t_list	*remove_from_lst(t_list **head, t_list *rem)
 {
 	t_list	*p;
@@ -57,4 +51,19 @@ t_rooms	*new_room(void)
 	if (buf == NULL)
 		error(-1);
 	return (buf);
+}
+
+void	rooms_free(t_rooms **rooms)
+{
+	t_rooms *p;
+	t_rooms	*temp;
+
+	p = *rooms;
+	while (p)
+	{
+		temp = p;
+		p = p->next;
+		print_and_dell_str_lst(temp->n_room, 0, 0);
+		free(temp);
+	}
 }

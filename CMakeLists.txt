@@ -3,7 +3,7 @@ project(lem_in)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_C_FLAGS "-std=c99 -Wall -Wextra -Werror")
+set(CMAKE_C_FLAGS "-g -std=c99 -Wall -Wextra -Werror")
 
 set(SOURCE_FILES
     libft/ft_printf/check_nbr.c
@@ -102,6 +102,6 @@ set(SOURCE_FILES
     libft/get_next_line.c
     libft/get_next_line.h
     libft/libft.h
-    main.c read_define.c lem_in.h libft/ft_atoi_move.c read_rooms.c list.c word_nbr.c collect_map.c collect_map.c str_lst.c find_path.c remove_duplicate.c move_ants.c find_the_room_by_nbr.c)
+    main.c read_define.c lem_in.h libft/ft_atoi_move.c read_rooms.c list.c word_nbr.c collect_map.c collect_map.c str_lst.c find_path.c remove_duplicate.c move_ants.c find_the_room_by_nbr.c list_del.c)
 
 add_executable(lem_in ${SOURCE_FILES})

@@ -40,7 +40,7 @@ void	str_lst_add(t_str **head, t_str *new)
 	}
 }
 
-void	print_and_dell_str_lst(t_str *head)
+void	print_and_dell_str_lst(t_str *head, int print, int free_s)
 {
 	t_str	*p;
 	t_str	*temp;
@@ -48,11 +48,14 @@ void	print_and_dell_str_lst(t_str *head)
 	p = head;
 	while (p)
 	{
-		ft_printf("%s\n", p->str);
+		if (print)
+			ft_printf("%s\n", p->str);
 		temp = p;
 		p = p->next;
-		ft_strdel(&(temp->str));
+		if (free_s)
+			ft_strdel(&(temp->str));
 		ft_memdel((void**)&temp);
 	}
-	ft_putendl("");
+	if (print)
+		ft_putendl("");
 }

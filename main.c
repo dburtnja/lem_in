@@ -45,8 +45,11 @@ int		main(void)
 	find_path(&info);
 	if (info.start->ant < 1)
 		error(-15);
-	print_and_dell_str_lst(info.head);
-//	print_list(info.paths, &info);
+	print_and_dell_str_lst(info.head, 1, 1);
+	print_list(info.paths, &info);
 	move_ants(&info);
+	free_list(&(info.paths));
+	rooms_free(&(info.start));
+	rooms_free(&(info.rooms));
 	return (0);
 }

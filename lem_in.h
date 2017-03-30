@@ -33,8 +33,8 @@ typedef struct		s_info
 	int				nbr_rooms;
 	int				ants;
 	t_list			*paths;
-	t_str			*p;
 	t_str			*head;
+	t_str			*p;
 	t_rooms			*start;
 	t_rooms			*rooms;
 }					t_info;
@@ -58,9 +58,11 @@ int					word_nbr(char *buf);
 
 t_str				*new_str_lst(char *str);
 void				str_lst_add_back(t_str **head, t_str *new);
-void				print_and_dell_str_lst(t_str *head);
+void				print_and_dell_str_lst(t_str *head, int print, int free_s);
 void				str_lst_add(t_str **head, t_str *new);
 t_list				*remove_from_lst(t_list **head, t_list *rem);
 void				list_del(t_list *del);
+void				free_list(t_list **head);
+void				rooms_free(t_rooms **rooms);
 
 #endif
