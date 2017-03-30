@@ -29,6 +29,7 @@ typedef struct		s_rooms
 
 typedef struct		s_info
 {
+	int				startline;
 	int				nbr_rooms;
 	int				ants;
 	t_list			*paths;

@@ -4,7 +4,7 @@
 
 #include "lem_in.h"
 
-void	add_to_room(int nbr, t_rooms *p)
+void	add_to_room(int nbr, t_rooms *p, int *start_line)
 {
 	if (nbr > 0)
 	{
@@ -12,7 +12,11 @@ void	add_to_room(int nbr, t_rooms *p)
 			(p->ant)++;
 		else
 			(p->ant) = nbr;
-		ft_printf("L%d-%s ", nbr, p->name);
+		if (*start_line == 1)
+			ft_printf("L%d-%s", nbr, p->name);
+		else
+			ft_printf(" L%d-%s", nbr, p->name);
+		*start_line = 0;
 	}
 }
 
@@ -55,5 +59,5 @@ void	find_the_room_by_nbr(int f_room, int t_room, t_info *info)
 	}
 	if (from == NULL && in == NULL)
 		error(-15);
-	add_to_room(remove_from_room(from, info->ants), in);
+	add_to_room(remove_from_room(from, info->ants), in, &(info->startline));
 }

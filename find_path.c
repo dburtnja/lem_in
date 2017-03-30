@@ -36,7 +36,7 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 	return (0);
 }
 
-
+/*
 char	*return_name(t_info *info, int nbr)
 {
 	t_rooms	*p;
@@ -74,9 +74,7 @@ void	print_list(t_list *paths, t_info *info)
 		p = p->next;
 	}
 }
-
-
-
+*/
 
 void	find_path(t_info *info)
 {

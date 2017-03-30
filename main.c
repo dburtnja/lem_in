@@ -46,7 +46,7 @@ int		main(void)
 	if (info.start->ant < 1)
 		error(-15);
 	print_and_dell_str_lst(info.head);
-	print_list(info.paths, &info);
+//	print_list(info.paths, &info);
 	move_ants(&info);
 	return (0);
 }
