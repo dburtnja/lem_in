@@ -66,13 +66,12 @@ t_list	*remove_duplicate(t_list *paths)
 	while (paths)
 	{
 		shorter = find_shorter(paths, ret);
+		if (!shorter)
+			return (ret);
 		if (different_array(ret, shorter))
 			ft_lstadd_back(&ret, remove_from_lst(&paths, shorter));
 		else
 			list_del((remove_from_lst(&paths, shorter)));
-
-	//	ft_putendl("");
-		//print_list(paths, info);
 	}
 	return (ret);
 }
