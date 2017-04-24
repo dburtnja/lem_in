@@ -39,7 +39,7 @@ char		*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	len = ft_nbrlen(n);
 	i = 0;
-	str = ft_strnew(len);
+	str = ft_strnew((size_t)len);
 	if (!str)
 		return (NULL);
 	putnbr_into_str(n, str, &i);

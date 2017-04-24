@@ -53,6 +53,7 @@ void	push_ants(t_info *info, t_rooms *last)
 
 	while (last->ant != info->ants)
 	{
+		info->startline = 1;
 		p = info->paths;
 		while (p)
 		{
