@@ -1,6 +1,14 @@
-//
-// Created by denys on 28.03.17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_ants.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/24 13:12:08 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/04/24 13:17:57 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lem_in.h"
 
@@ -18,7 +26,6 @@ void	find_limit(t_list *paths, int first_len)
 		paths = paths->next;
 	}
 }
-
 
 void	push_to_end(int *path, int path_size, t_info *info)
 {
@@ -44,7 +51,6 @@ void	push_ants(t_info *info, t_rooms *last)
 	t_list	*p;
 	int		*path;
 
-
 	while (last->ant != info->ants)
 	{
 		p = info->paths;
@@ -64,7 +70,7 @@ void	move_ants(t_info *info)
 
 	if (info->paths->next != NULL)
 		find_limit(info->paths->next,
-				   ((int)(info->paths->content_size / sizeof(int))));
+				((int)(info->paths->content_size / sizeof(int))));
 	last_room = info->rooms;
 	while (last_room && last_room->nbr != INT_MAX)
 		last_room = last_room->next;

@@ -1,60 +1,80 @@
-//
-// Created by denys on 27.03.17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   remove_duplicate.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/24 13:13:20 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/04/24 13:20:52 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lem_in.h"
 
-t_list	*find_shorter(t_list *p, t_list *ret)
+t_list	*find_shorter(t_list *paths)
 {
 	t_list	*shorter;
 	int		comp;
 
 	comp = INT_MAX;
 	shorter = NULL;
-	while (p)
+	while (paths)
 	{
-		if ((int)(p->content_size) < comp && different_array(ret, p))
+		if (comp > (int)(paths->content_size / sizeof(int)))
 		{
-			comp = (int)p->content_size;
-			shorter = p;
+			comp = (int)(paths->content_size / sizeof(int));
+			shorter = paths;
 		}
-		p = p->next;
+		paths = paths->next;
 	}
 	return (shorter);
 }
 
-int		find_nbr_in_lst(int nbr, t_list *head)
+int		comper_two_paths(int *cont, int c_len, int *shorter, int s_len)
 {
-	int		i;
+	int	i;
+	int j;
 
-	while (head)
+	if (shorter == cont)
+		return (0);
+	i = 1;
+	while (i + 1 < c_len)
 	{
-		i = 0;
-		while (i < (int)head->content_size)
+		j = 1;
+		while (j + 1 < s_len)
 		{
-			if (nbr != 0 && nbr != INT_MAX && nbr == ((int*)(head->content))[i])
+			if (cont[i] == shorter[j])
 				return (1);
-			i++;
+			j++;
 		}
-		head = head->next;
+		i++;
 	}
 	return (0);
 }
 
-int		different_array(t_list *head, t_list *new)
+void	remove_same_paths(t_list **paths, int *shorter, int short_len)
 {
-	int		i;
+	t_list	*p;
+	t_list	*buf;
+	int		c_len;
 
-	i = 0;
-	if (head == NULL)
-		return (1);
-	while (i < ((int)new->content_size) / (int)sizeof(int))
+	p = *paths;
+	*paths = NULL;
+	while (p)
 	{
-		if (find_nbr_in_lst(((int*)(new->content))[i], head) == 1)
-			return (0);
-		i++;
+		buf = p;
+		c_len = (int)(buf->content_size / sizeof(int));
+		if (comper_two_paths(buf->content, c_len, shorter, short_len))
+			ft_lstadd(paths, list_del(remove_from_lst(&p, buf)));
+		else
+			p = p->next;
+		print_list(p, NULL);
+		ft_putchar('\n');
+		print_list(*paths, NULL);
+		ft_putchar('\n');
 	}
-	return (1);
+	*paths = p;
 }
 
 t_list	*remove_duplicate(t_list *paths)
@@ -65,14 +85,10 @@ t_list	*remove_duplicate(t_list *paths)
 	ret = NULL;
 	while (paths)
 	{
-		shorter = find_shorter(paths, ret);
-		if (different_array(ret, shorter))
-			ft_lstadd_back(&ret, remove_from_lst(&paths, shorter));
-		else
-			list_del((remove_from_lst(&paths, shorter)));
-
-	//	ft_putendl("");
-		//print_list(paths, info);
+		shorter = find_shorter(paths);
+		remove_same_paths(&paths, shorter->content,
+						  (int)(shorter->content_size / sizeof(int)));
+		ft_lstadd_back(&ret, shorter);
 	}
 	return (ret);
 }

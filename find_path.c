@@ -1,6 +1,14 @@
-//
-// Created by denys on 26.03.17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_path.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/24 13:11:00 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/04/24 13:15:16 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lem_in.h"
 
@@ -19,7 +27,7 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 {
 	t_str	*p;
 
-	p = from->n_room; //remove from path
+	p = from->n_room;
 	if (already_been_hear(path, step, from->nbr) == 1)
 		return (0);
 	path[step] = from->nbr;
@@ -35,7 +43,6 @@ int		start_rec(int step, int *path, t_rooms *from, t_info *info)
 	}
 	return (0);
 }
-
 
 char	*return_name(t_info *info, int nbr)
 {
@@ -67,16 +74,16 @@ void	print_list(t_list *paths, t_info *info)
 		tab = (int*)p->content;
 		while (i < ((int)p->content_size / (int)sizeof(int)))
 		{
-			ft_printf("%-15s", return_name(info, tab[i]));
+			if (info)
+				ft_printf("%-15s", return_name(info, tab[i]));
+			else
+				ft_printf("%-10d", tab[i]);
 			i++;
 		}
 		ft_putendl("");
 		p = p->next;
 	}
 }
-
-
-
 
 void	find_path(t_info *info)
 {

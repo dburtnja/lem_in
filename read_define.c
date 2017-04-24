@@ -1,6 +1,14 @@
-//
-// Created by Denys Burtnjak on 3/23/17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_define.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/24 13:06:00 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/04/24 13:12:43 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lem_in.h"
 
@@ -10,7 +18,7 @@ void	read_commands(t_info *info, char *buf)
 
 	info->p = info->p->next;
 	if (info->p && ft_strcmp("start", buf) == 0)
-			info->start = room_to_lst(info->p->str);
+		info->start = room_to_lst(info->p->str);
 	else if (info->p && ft_strcmp("end", buf) == 0)
 	{
 		p = room_to_lst(info->p->str);
