@@ -66,7 +66,7 @@ void	remove_same_paths(t_list **paths, int *shorter, int short_len)
 		buf = p;
 		c_len = (int)(buf->content_size / sizeof(int));
 		if (comper_two_paths(buf->content, c_len, shorter, short_len))
-			ft_lstadd(paths, list_del(remove_from_lst(&p, buf)));
+			ft_lstadd(paths, remove_from_lst(&p, buf));
 		else
 			p = p->next;
 		print_list(p, NULL);
