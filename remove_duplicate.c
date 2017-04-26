@@ -50,6 +50,7 @@ int		comper_two_paths(int *cont, int c_len, int *shorter, int s_len)
 		}
 		i++;
 	}
+
 	return (0);
 }
 
