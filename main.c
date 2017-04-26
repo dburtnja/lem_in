@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 13:11:54 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/04/24 13:15:57 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/04/26 19:33:32 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	read_into_list(t_info *info)
 	while ((gnl = get_next_line(0, &buf)) > 0)
 	{
 		if (*buf == 0)
-			error(-2);
+			//error(-2);
 		str_lst_add_back(&(info->head), new_str_lst(buf));
 	}
 	if (gnl == -1)

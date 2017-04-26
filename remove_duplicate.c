@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 13:13:20 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/04/24 13:20:52 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/04/26 19:30:19 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,8 @@ t_list	*remove_duplicate(t_list *paths)
 		shorter = find_shorter(paths);
 		remove_from_lst(&paths, shorter);
 		remove_same_paths(&paths, shorter->content,
-						  (int)(shorter->content_size / sizeof(int)));
+				(int)(shorter->content_size / sizeof(int)));
 		ft_lstadd_back(&ret, shorter);
 	}
-
-	ft_putchar('\n');
-	ft_putchar('\n');
-	ft_putchar('\n');
-	t_list *temp = ret;
-	while (temp)
-	{
-		print_list(temp, NULL);
-		ft_putchar('\n');
-		temp = temp->next;
-	}
-
-
 	return (ret);
 }
