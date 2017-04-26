@@ -1,6 +1,14 @@
-//
-// Created by Denys Burtnjak on 3/24/17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_move.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/26 18:35:37 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/04/26 18:37:30 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -32,7 +40,7 @@ int			cheak_nbr(char *temp, int nbr, int size)
 	res = 1;
 	buf = ft_itoa(nbr);
 	while ((*temp == ' ' || *temp == '\t' || *temp == '\v' || *temp == '\r' ||
-		   *temp == '\f' || *temp == '\n') && *temp != 0)
+				*temp == '\f' || *temp == '\n') && *temp != 0)
 	{
 		temp++;
 		i++;
@@ -51,7 +59,7 @@ int			ft_atoi_move(char **buf, int *error, int move)
 	temp = *buf;
 	s = 1;
 	while (**buf == ' ' || **buf == '\t' || **buf == '\v' || **buf == '\r' ||
-		   **buf == '\f' || **buf == '\n')
+			**buf == '\f' || **buf == '\n')
 	{
 		(*buf)++;
 		if (**buf == '\0')
