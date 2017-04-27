@@ -33,7 +33,7 @@ void	read_into_list(t_info *info)
 	while ((gnl = get_next_line(0, &buf)) > 0)
 	{
 		if (*buf == 0)
-			//error(-2);
+			break;//error(-2);
 		str_lst_add_back(&(info->head), new_str_lst(buf));
 	}
 	if (gnl == -1)

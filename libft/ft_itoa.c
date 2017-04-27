@@ -26,7 +26,7 @@ static void	putnbr_into_str(int n, char *s, int *i)
 		putnbr_into_str(n % 10, s, i);
 	}
 	else
-		s[(*i)++] = n + '0';
+		s[(*i)++] =(char)(n + '0');
 }
 
 char		*ft_itoa(int n)
@@ -39,10 +39,9 @@ char		*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	len = ft_nbrlen(n);
 	i = 0;
-	str = ft_strnew(len);
+	str = ft_strnew((size_t)len);
 	if (!str)
 		return (NULL);
 	putnbr_into_str(n, str, &i);
-	str[len + 1] = '\0';
 	return (str);
 }
