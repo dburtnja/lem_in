@@ -59,4 +59,6 @@ as many ants as necessary.)<br/>
    ◦ Lx-y Lz-w Lr-o<br/>
     x, z, r represents the ants’ numbers (going from 1 to number_of_ants) and y, w, o represents the rooms’ names.<br/>
 
+-p flag alows to see all posibles paths.
+
 Subject for the project https://cdn.intra.42.fr/pdf/pdf/947/lem-in.en.pdf
