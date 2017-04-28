@@ -35,8 +35,8 @@ char	*ft_itoa_void(unsigned long long value, t_arg *head)
 
 void	mod_void(t_arg *head, va_list ptr)
 {
-	char	*str;
-	size_t	ad;
+	char				*str;
+	size_t				ad;
 
 	head->flag.hesh = 1;
 	head->flag.pl = 0;
