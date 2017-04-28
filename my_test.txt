@@ -1,15 +1,6 @@
+2
 ##start
 a 23 3
-b 16 7
-#comment
-c 1 1
-d 1 1
 ##end
-e 9 5
-a-e
+b 16 7
 a-b
-b-e
-a-c
-c-d
-d-e
-3
