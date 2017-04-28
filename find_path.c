@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 13:11:00 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/04/24 13:15:16 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/04/28 18:52:24 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	print_list(t_list *paths, t_info *info)
 	int		*tab;
 
 	p = paths;
+	ft_putendl("All possible paths:");
 	while (p)
 	{
 		i = 0;
@@ -80,7 +81,7 @@ void	print_list(t_list *paths, t_info *info)
 				ft_printf("%-10d", tab[i]);
 			i++;
 		}
-		ft_putendl("");
+		ft_putendl("\n");
 		p = p->next;
 	}
 }
@@ -96,4 +97,5 @@ void	find_path(t_info *info)
 	if (info->paths == NULL)
 		error(-10);
 	info->paths = remove_duplicate(info->paths);
+	ft_memdel((void**)&path);
 }

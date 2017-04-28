@@ -1,9 +1,17 @@
-//
-// Created by Denys Burtnjak on 3/23/17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lem_in.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/26 18:34:53 by dburtnja          #+#    #+#             */
+/*   Updated: 2017/04/26 19:31:03 by dburtnja         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef LEM_IN
-# define LEM_IN
+#ifndef LEM_IN_H
+# define LEM_IN_H
 
 # include "libft/libft.h"
 # include "libft/ft_printf/ft_printf.h"

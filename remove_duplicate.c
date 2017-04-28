@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 13:13:20 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/04/24 13:20:52 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/04/26 19:30:19 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int		comper_two_paths(int *cont, int c_len, int *shorter, int s_len)
 	int	i;
 	int j;
 
-	if (shorter == cont)
-		return (0);
 	i = 1;
 	while (i + 1 < c_len)
 	{
@@ -60,21 +58,18 @@ void	remove_same_paths(t_list **paths, int *shorter, int short_len)
 	int		c_len;
 
 	p = *paths;
-	*paths = NULL;
 	while (p)
 	{
 		buf = p;
 		c_len = (int)(buf->content_size / sizeof(int));
 		if (comper_two_paths(buf->content, c_len, shorter, short_len))
-			ft_lstadd(paths, remove_from_lst(&p, buf));
+		{
+			p = p->next;
+			list_del(remove_from_lst(paths, buf));
+		}
 		else
 			p = p->next;
-		print_list(p, NULL);
-		ft_putchar('\n');
-		print_list(*paths, NULL);
-		ft_putchar('\n');
 	}
-	*paths = p;
 }
 
 t_list	*remove_duplicate(t_list *paths)
@@ -86,8 +81,9 @@ t_list	*remove_duplicate(t_list *paths)
 	while (paths)
 	{
 		shorter = find_shorter(paths);
+		remove_from_lst(&paths, shorter);
 		remove_same_paths(&paths, shorter->content,
-						  (int)(shorter->content_size / sizeof(int)));
+				(int)(shorter->content_size / sizeof(int)));
 		ft_lstadd_back(&ret, shorter);
 	}
 	return (ret);

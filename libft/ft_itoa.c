@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 16:39:51 by dburtnja          #+#    #+#             */
-/*   Updated: 2016/12/09 17:23:47 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/04/28 18:33:08 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	putnbr_into_str(int n, char *s, int *i)
 		putnbr_into_str(n % 10, s, i);
 	}
 	else
-		s[(*i)++] = n + '0';
+		s[(*i)++] = (char)(n + '0');
 }
 
 char		*ft_itoa(int n)
@@ -43,6 +43,5 @@ char		*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	putnbr_into_str(n, str, &i);
-	str[len + 1] = '\0';
 	return (str);
 }

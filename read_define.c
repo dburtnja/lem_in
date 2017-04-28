@@ -16,11 +16,14 @@ void	read_commands(t_info *info, char *buf)
 {
 	t_rooms	*p;
 
-	info->p = info->p->next;
 	if (info->p && ft_strcmp("start", buf) == 0)
+	{
+		info->p = info->p->next;
 		info->start = room_to_lst(info->p->str);
+	}
 	else if (info->p && ft_strcmp("end", buf) == 0)
 	{
+		info->p = info->p->next;
 		p = room_to_lst(info->p->str);
 		p->nbr = INT_MAX;
 		rooms_add_back(&(info->rooms), p);

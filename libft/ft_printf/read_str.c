@@ -19,7 +19,6 @@ t_arg	*read_str(char *str, va_list arg)
 	size_t	len;
 
 	head = NULL;
-	p = NULL;
 	while (*str != '\0')
 	{
 		if (*str == '%')
