@@ -6,7 +6,7 @@
 /*   By: dburtnja <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 13:11:54 by dburtnja          #+#    #+#             */
-/*   Updated: 2017/04/26 19:33:32 by dburtnja         ###   ########.fr       */
+/*   Updated: 2017/04/28 19:04:50 by dburtnja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,17 @@ void	read_into_list(t_info *info)
 		if (*buf == 0)
 		{
 			ft_strdel(&buf);
-			break;//error(-2);
+			error(-2);
 		}
 		str_lst_add_back(&(info->head), new_str_lst(buf));
 	}
+	if (buf && *buf == 0)
+		ft_strdel(&buf);
 	if (gnl == -1)
 		error(-2);
 }
 
-int		main(void)
+int		main(int argc, char **argv)
 {
 	t_info	info;
 
@@ -57,8 +59,8 @@ int		main(void)
 	if (info.start->ant < 1)
 		error(-15);
 	print_and_dell_str_lst(info.head);
-	print_list(info.paths, &info);
+	if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 'p')
+		print_list(info.paths, &info);
 	move_ants(&info);
-	sleep (20);
 	return (0);
 }
