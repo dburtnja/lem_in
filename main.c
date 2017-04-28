@@ -33,7 +33,10 @@ void	read_into_list(t_info *info)
 	while ((gnl = get_next_line(0, &buf)) > 0)
 	{
 		if (*buf == 0)
+		{
+			ft_strdel(&buf);
 			break;//error(-2);
+		}
 		str_lst_add_back(&(info->head), new_str_lst(buf));
 	}
 	if (gnl == -1)
@@ -56,5 +59,6 @@ int		main(void)
 	print_and_dell_str_lst(info.head);
 	print_list(info.paths, &info);
 	move_ants(&info);
+	sleep (20);
 	return (0);
 }

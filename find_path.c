@@ -96,4 +96,5 @@ void	find_path(t_info *info)
 	if (info->paths == NULL)
 		error(-10);
 	info->paths = remove_duplicate(info->paths);
+	ft_memdel((void**)&path);
 }
